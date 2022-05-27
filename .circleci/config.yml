@@ -18,6 +18,7 @@ jobs:
             chromedriver --version
           name: Check install
       - checkout
+      - aws-cli/setup
       - restore_cache:
           key: Mena-PackageFront-{{ checksum "udagram-frontend/package-lock.json" }}
       - run: npm run frontend:install
@@ -49,6 +50,10 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+      - run:
+          name: Deploy App
+          command: |
+            npm run frontend:deploy
 
 workflows:
   sample:
