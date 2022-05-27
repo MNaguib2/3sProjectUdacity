@@ -10,7 +10,6 @@ jobs:
         environment:
           CHROME_BIN: /usr/bin/google-chrome
     steps:
-      - node/install
       - checkout
       - run:
           name: Front-End Install
