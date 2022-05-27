@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  browser-tools: circleci/browser-tools@1.2.3
+jobs:
+  test and build:
+    docker:
+      - image: cimg/node:16.13.1-browsers
+        environment:
+          CHROME_BIN: /usr/bin/google-chrome
+    steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          command: |
+            google-chrome --version
+            chromedriver --version
+          name: Check install
+      - checkout
+      - restore_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run:
+          name: Run tests
+          command: npm run test
+      - run: 
+          name: build
+          command: npm run build    
+
+workflows:
+  sample:
+    jobs:
+      - test and build
