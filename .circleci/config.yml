@@ -12,18 +12,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: Mena-PackageFront-{{ checksum "package-lock.json" }}
+          key: Mena-PackageFront-{{ checksum "udagram-frontend/package-lock.json" }}
       - run: npm run frontend:install
       - save_cache:
-          key: Mena-PackageFront-{{ checksum "package-lock.json" }}
+          key: Mena-PackageFront-{{ checksum "udagram-frontend/package-lock.json" }}
           paths:
             - "udagram-frontend/node_modules"
 
       - restore_cache:
-          key: Mena-PackageBack-{{ checksum "package-lock.json" }}
+          key: Mena-PackageBack-{{ checksum "udagram-api/package-lock.json" }}
       - run: npm run backend:install
       - save_cache:
-          key: Mena-PackageBack-{{ checksum "package-lock.json" }}
+          key: Mena-PackageBack-{{ checksum "udagram-api/package-lock.json" }}
           paths:
             - "udagram-api/node_modules"
       - run:
