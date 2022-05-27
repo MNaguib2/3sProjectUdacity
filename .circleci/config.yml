@@ -7,6 +7,7 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:16.13.1-browsers
+      - image: cimg/node:16.13
         environment:
           CHROME_BIN: /usr/bin/google-chrome
     steps:
