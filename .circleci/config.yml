@@ -12,17 +12,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: Mena-Package-{{ checksum "package-lock.json" }}
+          key: Mena-PackageFront-{{ checksum "package-lock.json" }}
       - run: npm run frontend:install
       - save_cache:
-          key: Mena-Package-{{ checksum "package-lock.json" }}
+          key: Mena-PackageFront-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
+
       - restore_cache:
-          key: Mena-Package-{{ checksum "package-lock.json" }}
+          key: Mena-PackageBack-{{ checksum "package-lock.json" }}
       - run: npm run backend:install
       - save_cache:
-          key: Mena-Package-{{ checksum "package-lock.json" }}
+          key: Mena-PackageBack-{{ checksum "package-lock.json" }}
           paths:
             - "node_modules"
       - run:
