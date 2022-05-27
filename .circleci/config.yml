@@ -11,14 +11,20 @@ jobs:
           CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
-      - run:
-          name: Front-End Install
-          command: |
-            npm run frontend:install
-      - run:
-          name: Back-End Install
-          command: |
-            npm run backend:install
+      - restore_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+      - run: npm run frontend:install
+      - save_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - restore_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+      - run: npm run backend:install
+      - save_cache:
+          key: Mena-Package-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run:
           name: Front-End Build
           command: |
