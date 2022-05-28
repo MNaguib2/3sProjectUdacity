@@ -41,3 +41,20 @@ to made first check if node package install or not if not install package
   to confirm not found any error before made deploy in cloude
 4- made build to all project api and frontend 
 5- deploy all project to change in frontend or in backend 
+
+Documentation : - 
+  Infrastructure  
+    I use servic RDS Relational Database Service from AWS to upload Database
+    I use servic EB Elastic Beanstalk from AWS to upload node js api 
+    and use service S3 to upload files and static host website
+  App dependencies
+    NodeJs - PostGres - AngularJs - CircileCI - Typescript - javascript - GitHub
+  Pipeline process
+    1- transfer from my pc to gitHube
+    2- Running CircileCi after push to check 
+              1- every environemt and dependances is ok 
+              2- made test on frontend and api to confirm code without any error
+              3- made build to frontend and api to confirm every thing ok and prepare to next step
+              4- made deploy to frontend and made deploy to backend and set some evironment variable after deploy backend
+    3- go to AWS will find Eleastic Beanstic is refreash and done to upgred new api 
+    4- and update in bucket mena-udagram to update front end 
