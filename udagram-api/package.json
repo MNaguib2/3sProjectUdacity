@@ -12,7 +12,8 @@
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"no available test\"",
     "Elastic_Beanstalk" : "eb init udagram-api --platform node.js --region us-east-1 && eb deploy udagram-api-dev",
-    "deploy": "npm run build && npm run Elastic_Beanstalk && chmod +x bin/deploy.sh && bin/deploy.sh"
+    //"deploy": "npm run build && npm run Elastic_Beanstalk && chmod +x bin/deploy.sh && bin/deploy.sh"
+    "deploy": "eb init udagram-api --platform node.js --region us-east-1 && eb deploy udagram-api-dev"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
