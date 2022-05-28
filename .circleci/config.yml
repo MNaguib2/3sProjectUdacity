@@ -61,11 +61,11 @@ jobs:
       - run:
           name: secrets
           command: |
-            npm run backend:deploy
+            cd udagram-api && npm eb setenv PORT=3000 POSTGRES_USERNAME=postgres
       - run:
           name: Deploy BackEnd
           command: |
-            eb setenv PORT=3000 POSTGRES_USERNAME=postgres
+            run backend:deploy
 
 workflows:
   sample:
