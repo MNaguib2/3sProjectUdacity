@@ -23,10 +23,9 @@ jobs:
       - eb/setup
       - restore_cache:
           key: Mena-PackageFront-{{ checksum "udagram-frontend/package-lock.json" }}
-          - Mena-PackageFront-
+            - Mena-PackageFront-
       - run: npm run frontend:install
       - save_cache:
-          key: Mena-PackageFront-{{ checksum "udagram-frontend/package-lock.json" }}
           paths:
             - "udagram-frontend/node_modules"
           key: Mena-PackageFront-
