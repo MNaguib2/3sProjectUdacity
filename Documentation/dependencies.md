@@ -1,0 +1,1 @@
+NodeJs - PostGres - AngularJs - CircileCI - Typescript - javascript - GitHub
