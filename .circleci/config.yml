@@ -50,6 +50,9 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build
+            filters:
+                branches:
+                  only: /master\/.*/
       - run:
           name: Back-End Build
           command: |
@@ -67,6 +70,3 @@ workflows:
   sample:
     jobs:
       - build-and-test
-    filters:
-            branches:
-              only: /master\/.*/
