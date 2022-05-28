@@ -32,11 +32,12 @@ jobs:
 
       - restore_cache:
           key: Mena-PackageBack-{{ checksum "udagram-api/package-lock.json" }}
+            - Mena-PackageBack-
       - run: npm run backend:install
       - save_cache:
-          key: Mena-PackageBack-{{ checksum "udagram-api/package-lock.json" }}
           paths:
             - "udagram-api/node_modules"      
+          key: Mena-PackageBack-
       - run:
           name: Front-End test
           command: |
