@@ -41,3 +41,10 @@ to made first check if node package install or not if not install package
   to confirm not found any error before made deploy in cloude
 4- made build to all project api and frontend 
 5- deploy all project to change in frontend or in backend 
+
+
+
+
+
+
+    //"deploy": "npm run build && npm run Elastic_Beanstalk && eb deploy udagram-api-dev && chmod +x bin/deploy.sh && bin/deploy.sh"
