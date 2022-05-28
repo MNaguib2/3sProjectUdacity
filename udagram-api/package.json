@@ -10,9 +10,9 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "test": "echo \"no available test\"",
+    "test": "echo \"no available test\"",    
     "Elastic_Beanstalk" : "eb init udagram-api --platform node.js --region us-east-1",
-    "deploy": "eb init udagram-api --platform node.js --region us-east-1 && eb deploy udagram-api-dev"
+    "deploy": "npm run Elastic_Beanstalk && eb deploy udagram-api-dev && eb setenv PORT=3000 POSTGRES_USERNAME=postgres"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
